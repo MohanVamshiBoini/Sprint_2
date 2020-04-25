@@ -14,7 +14,7 @@ public class AdminServiceImpl implements AdminService{
     AdminDao dao;
 	@Override
 	public DiagnosticCentre addCentre(DiagnosticCentre diagnosticCentre) {
-		return dao.save(diagnosticCentre);
+		return dao.save(diagnosticCentre);//JpaRepository method to create
 	}
 	@Override
 	public void getCentre(String centreId) {

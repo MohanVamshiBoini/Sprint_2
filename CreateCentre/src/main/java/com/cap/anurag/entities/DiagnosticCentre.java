@@ -7,7 +7,6 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -21,7 +20,7 @@ public class DiagnosticCentre {
 	@Id
 	@GeneratedValue(generator = "system-uuid")
 	@GenericGenerator(name = "system-uuid", strategy = "uuid")
-	@JoinColumn
+	//@JoinColumn
 	private String centreId;
 	private String centreName;
 	//@OneToOne(mappedBy = "diagnosticCentre", cascade = CascadeType.ALL)

@@ -17,7 +17,7 @@ public class AdminServiceImpl implements AdminService{
 	
 	@Override
 	public List<DiagnosticCentre> getCentres() {
-		return dao.findAll();
+		return dao.findAll();//JpaRepository method to fetch all DiagnosticCentre Details
 	}
 
 }

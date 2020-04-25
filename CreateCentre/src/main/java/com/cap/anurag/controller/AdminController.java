@@ -18,7 +18,7 @@ import com.cap.anurag.service.AdminService;
 public class AdminController {
 @Autowired
 AdminService service;
-	
+	//Fetches Center Details and maps
 	@PostMapping("/create")
 	public ResponseEntity<Boolean> create(@RequestBody DiagnosticCentre diagnosticCentre) {
 		//service.getCentre(diagnosticCentre.getCentreId());

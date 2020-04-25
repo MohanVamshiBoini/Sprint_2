@@ -18,12 +18,13 @@ import com.cap.anurag.service.AdminService;
 @RequestMapping("/DiagnosticCentre")
 @CrossOrigin(origins = "http://localhost:4200")
 public class AdminController {
-@Autowired
-AdminService service;
-	
-@GetMapping("/find")
-public ResponseEntity<List<DiagnosticCentre>> getCentreById( ) {
-	List<DiagnosticCentre> list = service.getCentres();
-	return new ResponseEntity<List<DiagnosticCentre>>(list, new HttpHeaders(), HttpStatus.OK);
-}
+	@Autowired
+	AdminService service;
+
+//Sends Center details
+	@GetMapping("/find")
+	public ResponseEntity<List<DiagnosticCentre>> getCentreById() {
+		List<DiagnosticCentre> list = service.getCentres();
+		return new ResponseEntity<List<DiagnosticCentre>>(list, new HttpHeaders(), HttpStatus.OK);
+	}
 }

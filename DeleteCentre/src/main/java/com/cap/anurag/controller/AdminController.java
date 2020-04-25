@@ -18,7 +18,7 @@ import com.cap.anurag.service.AdminService;
 public class AdminController {
 @Autowired
 AdminService service;
-	
+	//fetches center id for deleting
 	@DeleteMapping("/delete/{centreId}")
 	public ResponseEntity<Boolean> deleteCentreById(@PathVariable("centreId") String centreId) {
 		service.deleteCentreById(centreId);

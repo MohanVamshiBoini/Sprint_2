@@ -14,7 +14,7 @@ public class AdminServiceImpl implements AdminService{
 	
 	@Override
 	public void deleteCentreById(String centreId) {
-		dao.delete(centreId);
+		dao.delete(centreId);//JpaRepository method for deleting using centreId
 		
 	}
 
