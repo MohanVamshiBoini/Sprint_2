@@ -1,5 +1,7 @@
 package com.cap.anurag.controller;
 
+import java.util.Random;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +24,9 @@ AdminService service;
 	@PostMapping("/create")
 	public ResponseEntity<Boolean> create(@RequestBody DiagnosticCentre diagnosticCentre) {
 		//service.getCentre(diagnosticCentre.getCentreId());
+		Random rand = new Random();
+		int rand_int1 = rand.nextInt(1000); 
+		diagnosticCentre.setCentreId(Integer.toString(rand_int1));
 		diagnosticCentre = service.addCentre(diagnosticCentre);
 		@SuppressWarnings({ "rawtypes", "unchecked" })
 		ResponseEntity<Boolean> responseEntity = new ResponseEntity(true, HttpStatus.OK);

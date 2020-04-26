@@ -8,7 +8,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -22,21 +21,12 @@ public class Appointment {
 	@GenericGenerator(name = "system-uuid", strategy = "uuid")
 	private String userId;
 	private BigInteger appointmentid;
-	@OneToOne(mappedBy = "appointment", cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "Test_centre_id")
 	private Test test;
 	private Date datetime;
 	private boolean approved;
-	@ManyToOne
-	@JoinColumn(name="dia_no")
-	private DiagnosticCentre diagnosticCentre;
-
-	public DiagnosticCentre getDiagnosticCentre() {
-		return diagnosticCentre;
-	}
-
-	public void setDiagnosticCentre(DiagnosticCentre diagnosticCentre) {
-		this.diagnosticCentre = diagnosticCentre;
-	}
+	
 
 	public String getUserId() {
 		return userId;
@@ -78,18 +68,10 @@ public class Appointment {
 		this.approved = approved;
 	}
 
-	public DiagnosticCentre getCentre() {
-		return diagnosticCentre;
-	}
-
-	public void setCentre(DiagnosticCentre diagnosticCentre) {
-		this.diagnosticCentre = diagnosticCentre;
-	}
-
 	@Override
 	public String toString() {
 		return "Appointment [userId=" + userId + ", appointmentid=" + appointmentid + ", test=" + test + ", datetime="
-				+ datetime + ", approved=" + approved + ", diagnosticCentre=" + diagnosticCentre + "]";
+				+ datetime + ", approved=" + approved +  "]";
 	}
 
 }
