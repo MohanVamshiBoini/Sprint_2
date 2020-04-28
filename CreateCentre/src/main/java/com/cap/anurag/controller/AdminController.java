@@ -23,7 +23,7 @@ AdminService service;
 	//Fetches Center Details and maps
 	@PostMapping("/create")
 	public ResponseEntity<Boolean> create(@RequestBody DiagnosticCentre diagnosticCentre) {
-		//service.getCentre(diagnosticCentre.getCentreId());
+		//System.out.println(service.getCentre(diagnosticCentre.getCentreName()));
 		Random rand = new Random();
 		int rand_int1 = rand.nextInt(1000); 
 		diagnosticCentre.setCentreId(Integer.toString(rand_int1));

@@ -16,10 +16,15 @@ public class AdminServiceImpl implements AdminService{
 	public DiagnosticCentre addCentre(DiagnosticCentre diagnosticCentre) {
 		return dao.save(diagnosticCentre);//JpaRepository method to create
 	}
+
+	/*
+	 * @Override public List<DiagnosticCentre> getCentres() { return dao.findAll();
+	 * }
+	 */
 	@Override
-	public void getCentre(String centreId) {
-		dao.getOne(centreId);
-		
+	public String getCentre(String centreName) {
+		return dao.getCentre(centreName);
 	}
+	
 
 }

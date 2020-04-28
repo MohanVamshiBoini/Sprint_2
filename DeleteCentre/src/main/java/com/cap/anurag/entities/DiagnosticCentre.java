@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -14,7 +15,9 @@ import javax.persistence.Table;
 @Table(name = "diagnosticcentre")
 public class DiagnosticCentre {
 	@Id
+	@Column(length=10)
 	private String centreId;
+	@Column(length=10)
 	private String centreName;
 	@OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "test_c_id")

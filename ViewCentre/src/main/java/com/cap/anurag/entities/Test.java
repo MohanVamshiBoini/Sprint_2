@@ -1,5 +1,6 @@
 package com.cap.anurag.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -13,7 +14,9 @@ public class Test {
 	@Id 
 	@GeneratedValue(generator = "system-uuid")
 	@GenericGenerator(name = "system-uuid", strategy = "uuid")
+	@Column(length=10)
 	private String testId;
+	@Column(length=10)
 	private String testName;
 
 	public String getTestId() {

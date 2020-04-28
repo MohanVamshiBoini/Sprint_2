@@ -4,6 +4,7 @@ import java.math.BigInteger;
 import java.sql.Date;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -19,12 +20,16 @@ public class Appointment {
 	@Id
 	@GeneratedValue(generator = "system-uuid")
 	@GenericGenerator(name = "system-uuid", strategy = "uuid")
+	@Column(length=10)
 	private String userId;
+	@Column(length=10)
 	private BigInteger appointmentid;
 	@OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "Test_centre_id")
 	private Test test;
+	@Column(length=10)
 	private Date datetime;
+	@Column(length=10)
 	private boolean approved;
 	
 

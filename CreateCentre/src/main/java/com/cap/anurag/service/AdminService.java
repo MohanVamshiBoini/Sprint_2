@@ -6,7 +6,9 @@ public interface AdminService {
 
 	DiagnosticCentre addCentre(DiagnosticCentre diagnosticCentre);
 
-	void getCentre(String centreId);
+	//List<DiagnosticCentre> getCentres();
+
+	String getCentre(String centreName);
 
 
 }
