@@ -12,12 +12,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "diagnosticcentre")
+@Table(name = "diagnostic_centre")
 public class DiagnosticCentre {
 	@Id
 	@Column(length=10)
 	private String centreId;
-	@Column(length=10)
 	private String centreName;
 	@OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "test_c_id")

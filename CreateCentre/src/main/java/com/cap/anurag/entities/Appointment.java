@@ -15,12 +15,11 @@ import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-@Table(name = "Appointment")
+@Table(name = "Appointments")
 public class Appointment {
 	@Id
 	@GeneratedValue(generator = "system-uuid")
 	@GenericGenerator(name = "system-uuid", strategy = "uuid")
-	@Column(length=10)
 	private String userId;
 	@Column(length=10)
 	private BigInteger appointmentid;

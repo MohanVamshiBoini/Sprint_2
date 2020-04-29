@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.Query;
 import com.cap.anurag.entities.DiagnosticCentre;
 
 public interface AdminDao extends JpaRepository<DiagnosticCentre, String> {
-	@Query("select centreName from DiagnosticCentre")
+	@Query("select d.centreName from DiagnosticCentre d where d.centreName=?1")
 	String getCentre(String centreName);
 }
