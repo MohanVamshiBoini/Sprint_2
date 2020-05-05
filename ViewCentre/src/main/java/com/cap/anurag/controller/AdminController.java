@@ -25,6 +25,6 @@ public class AdminController {
 	@GetMapping("/find")
 	public ResponseEntity<List<DiagnosticCentre>> getCentres() {
 		List<DiagnosticCentre> list = service.getCentres();
-		return new ResponseEntity<List<DiagnosticCentre>>(list, new HttpHeaders(), HttpStatus.OK);
+		return new ResponseEntity<>(list, new HttpHeaders(), HttpStatus.OK);
 	}
 }

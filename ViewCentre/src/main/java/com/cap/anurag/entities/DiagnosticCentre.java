@@ -21,10 +21,10 @@ public class DiagnosticCentre {
 	private String centreName;
 	@OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "test_c_id")
-	private List<Test> listOfTests = new ArrayList<Test>();
+	private List<Test> listOfTests = new ArrayList<>();
 	@OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "appointment_c_id")
-	private List<Appointment> appointmentList = new ArrayList<Appointment>();
+	private List<Appointment> appointmentList = new ArrayList<>();
 
 	public List<Test> getListOfTests() {
 		return listOfTests;

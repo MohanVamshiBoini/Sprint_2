@@ -22,25 +22,23 @@ import com.cap.anurag.service.AdminService;
 public class AdminController {
 	@Autowired
 	AdminService service;
-
+	
+	private Random rand = new Random();
 	// Fetches Center Details and maps
-	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@PostMapping("/create")
-	public ResponseEntity<String> create(@RequestBody DiagnosticCentre diagnosticCentre) {
+	public ResponseEntity<Boolean> create(@RequestBody DiagnosticCentre diagnosticCentre) {
 		String centre = service.getCentre(diagnosticCentre.getCentreName());
 		if (centre != null) {
 			throw new RecordFoundException("CentreName found");
 		} else {
-			Random rand = new Random();
-			int rand_int1 = rand.nextInt(1000);
-			diagnosticCentre.setCentreId(Integer.toString(rand_int1));
-			diagnosticCentre = service.addCentre(diagnosticCentre);
-			return new ResponseEntity(true, HttpStatus.OK);
+			diagnosticCentre.setCentreId(Integer.toString(rand.nextInt(1000)));
+			service.addCentre(diagnosticCentre);
+			return new ResponseEntity<>(true, HttpStatus.OK);
 		}
 	}
 
 	@ExceptionHandler(RecordFoundException.class)
 	public ResponseEntity<String> userNotFound(RecordFoundException e) {
-		return new ResponseEntity<String>(e.getMessage(), HttpStatus.FOUND);
+		return new ResponseEntity<>(e.getMessage(), HttpStatus.FOUND);
 	}
 }

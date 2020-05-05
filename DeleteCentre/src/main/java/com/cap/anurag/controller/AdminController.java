@@ -6,10 +6,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cap.anurag.exception.RecordNotFoundException;
 import com.cap.anurag.service.AdminService;
 
 @RestController
@@ -22,6 +24,11 @@ AdminService service;
 	@DeleteMapping("/delete/{centreId}")
 	public ResponseEntity<Boolean> deleteCentreById(@PathVariable("centreId") String centreId) {
 		service.deleteCentreById(centreId);
-		return new ResponseEntity<Boolean>(true, new HttpHeaders(), HttpStatus.OK);
+		return new ResponseEntity<>(true, new HttpHeaders(), HttpStatus.OK);
+	}
+	
+	@ExceptionHandler(RecordNotFoundException.class)
+	public ResponseEntity<String> userNotFound(RecordNotFoundException e) {
+		return new ResponseEntity<>(e.getMessage(), HttpStatus.FOUND);
 	}
 }
