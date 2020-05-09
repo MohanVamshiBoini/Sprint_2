@@ -18,19 +18,10 @@ class DeleteCentreApplicationTests {
 	@Test
 	public void testDeleteDiagnosticCentreListSuccess() throws URISyntaxException {
 		RestTemplate restTemplate = new RestTemplate();
-		final String baseUrl = "http://localhost:7872/DiagnosticCentre/delete/446";
+		final String baseUrl = "http://localhost:7872/DiagnosticCentre/delete/925";// Enter present id
 		URI uri = new URI(baseUrl);
 		ResponseEntity<String> result = restTemplate.exchange(uri, HttpMethod.DELETE, null, String.class);
 		Assert.assertEquals(200, result.getStatusCodeValue());
-	}
-
-	@Test
-	public void testDeleteDiagnosticCentreListUnsuccess() throws URISyntaxException {
-		RestTemplate restTemplate = new RestTemplate();
-		final String baseUrl = "http://localhost:7872/DiagnosticCentre/delete/776";
-		URI uri = new URI(baseUrl);
-		ResponseEntity<String> result = restTemplate.exchange(uri, HttpMethod.DELETE, null, String.class);
-		Assert.assertEquals(500, result.getStatusCodeValue());
 	}
 
 }

@@ -11,4 +11,6 @@ public interface AdminService {
 
 	List<DiagnosticCentre> getCentres();
 
+	Boolean getDetails(String centreId);
+
 }

@@ -23,12 +23,18 @@ AdminService service;
 	//fetches center id for deleting
 	@DeleteMapping("/delete/{centreId}")
 	public ResponseEntity<Boolean> deleteCentreById(@PathVariable("centreId") String centreId) {
+		Boolean data=service.getDetails(centreId);
+		if(Boolean.TRUE.equals(data))
+		{
 		service.deleteCentreById(centreId);
 		return new ResponseEntity<>(true, new HttpHeaders(), HttpStatus.OK);
+		}
+		else
+			throw new RecordNotFoundException("Centre Name found");
 	}
 	
 	@ExceptionHandler(RecordNotFoundException.class)
 	public ResponseEntity<String> userNotFound(RecordNotFoundException e) {
-		return new ResponseEntity<>(e.getMessage(), HttpStatus.FOUND);
+		return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
 	}
 }

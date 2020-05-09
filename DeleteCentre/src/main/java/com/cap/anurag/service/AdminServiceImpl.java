@@ -26,6 +26,11 @@ public class AdminServiceImpl implements AdminService{
 		return dao.findAll();
 	}
 
+	@Override
+	public Boolean getDetails(String centreId) {
+		return dao.exists(centreId);
+	}
+
 	
 
 }

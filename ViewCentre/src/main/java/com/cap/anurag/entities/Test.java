@@ -9,12 +9,11 @@ import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-@Table(name = "test_s")
+@Table(name = "test_s2")
 public class Test {
 	@Id 
 	@GeneratedValue(generator = "system-uuid")
 	@GenericGenerator(name = "system-uuid", strategy = "uuid")
-	@Column(length=20)
 	private String testId;
 	@Column(length=20)
 	private String testName;

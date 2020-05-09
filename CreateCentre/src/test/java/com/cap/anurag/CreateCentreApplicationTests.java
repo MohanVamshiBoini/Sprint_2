@@ -12,9 +12,8 @@ import org.springframework.web.client.RestTemplate;
 
 import com.cap.anurag.entities.DiagnosticCentre;
 
-import junit.framework.Assert;
+import org.junit.Assert;
 
-@SuppressWarnings("deprecation")
 @SpringBootTest
 class CreateCentreApplicationTests {
 
@@ -28,7 +27,7 @@ class CreateCentreApplicationTests {
 	 
 	    DiagnosticCentre diagnosticCentre = new DiagnosticCentre();
         diagnosticCentre.setCentreId("123");
-        diagnosticCentre.setCentreName("Abcde");//Add new every time
+        diagnosticCentre.setCentreName("dnkd");//Add new every time
         
         HttpHeaders headers = new HttpHeaders();
         headers.set("X-COM-PERSIST", "true");      
@@ -36,7 +35,7 @@ class CreateCentreApplicationTests {
         
         ResponseEntity<String> result = restTemplate.postForEntity(uri, request, String.class);
 	    Assert.assertEquals(200, result.getStatusCodeValue());
-	    Assert.assertNotNull(diagnosticCentre);
+	    Assert.assertNotNull(result);
 	}
 	@Test
 	public void testGetDiagnosticCentreListUnsuccess() throws URISyntaxException 
@@ -56,7 +55,7 @@ class CreateCentreApplicationTests {
         
         ResponseEntity<String> result = restTemplate.postForEntity(uri, request, String.class);
 	    Assert.assertEquals(302, result.getStatusCodeValue());
-	    Assert.assertNotNull(diagnosticCentre);
+	    Assert.assertNotNull(result);
 	}
 
 }

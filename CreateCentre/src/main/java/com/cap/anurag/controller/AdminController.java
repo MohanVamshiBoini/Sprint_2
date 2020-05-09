@@ -33,12 +33,13 @@ public class AdminController {
 		} else {
 			diagnosticCentre.setCentreId(Integer.toString(rand.nextInt(1000)));
 			service.addCentre(diagnosticCentre);
+			
 			return new ResponseEntity<>(true, HttpStatus.OK);
 		}
 	}
 
 	@ExceptionHandler(RecordFoundException.class)
-	public ResponseEntity<String> userNotFound(RecordFoundException e) {
-		return new ResponseEntity<>(e.getMessage(), HttpStatus.FOUND);
+	public ResponseEntity<Boolean> userNotFound(RecordFoundException e) {
+		return new ResponseEntity<>(false, HttpStatus.OK);
 	}
 }
